@@ -23,10 +23,29 @@ public class Usuario implements Serializable{
     protected String nome;
     protected String cpf;
     protected boolean isMedico;
+    
+    //Um usuario pode acessar sua agenda, caso seja médico essa será a agenda com todas as consultas
+    protected Agenda agenda;
 
     public Usuario() {
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Agenda getAgenda() {
+        return agenda;
+    }
+
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
+    }
+    
     public boolean isIsMedico() {
         return isMedico;
     }
@@ -77,6 +96,8 @@ public class Usuario implements Serializable{
 
     @Override
     public String toString() {
-        return "Usuario{" + "email=" + email + ", senha=" + senha + ", login=" + login + ", nome=" + nome + ", cpf=" + cpf + ", isMedico=" + isMedico + '}';
+        return "Usuario{" + "id=" + id + ", email=" + email + ", senha=" + senha + ", login=" + login + ", nome=" + nome + ", cpf=" + cpf + ", isMedico=" + isMedico + ", agenda=" + agenda + '}';
     }
+
+    
 }

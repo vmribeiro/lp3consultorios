@@ -6,6 +6,7 @@
 package br.mack.agendamento.modelo;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -24,7 +25,7 @@ public class Consulta implements Serializable{
     private int horario;
     
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataConsulta;
+    private LocalDateTime dataConsulta;
     private String status;
     
     private List<Cliente> clientes;
@@ -48,11 +49,11 @@ public class Consulta implements Serializable{
         this.horario = horario;
     }
 
-    public Date getDataConsulta() {
+    public LocalDateTime getDataConsulta() {
         return dataConsulta;
     }
 
-    public void setDataConsulta(Date dataConsulta) {
+    public void setDataConsulta(LocalDateTime dataConsulta) {
         this.dataConsulta = dataConsulta;
     }
 

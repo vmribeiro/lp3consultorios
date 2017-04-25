@@ -1,16 +1,21 @@
 package br.mack.agendamento.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author p017416
  */
-public class Cliente extends Usuario{ 
+@Entity
+public class Cliente extends Usuario implements Serializable{ 
     private String endereco;
     private String telefone;
     
     public Cliente() {
-    }
-
+    }   
+    
     public String getEndereco() {
         return endereco;
     }

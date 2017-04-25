@@ -5,11 +5,15 @@
  */
 package br.mack.agendamento.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+
 /**
  *
  * @author vmrib
  */
-public class Medico extends Usuario{
+@Entity
+public class Medico extends Usuario implements Serializable{
     private String crm;
     private Agenda agenda;
 
@@ -31,6 +35,6 @@ public class Medico extends Usuario{
 
     @Override
     public String toString() {
-        return "Medico{" + "crm=" + crm + '}';
+        return super.toString()+ "{\nMedico{" + "crm=" + crm + "\n}";
     }
 }

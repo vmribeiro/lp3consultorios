@@ -5,21 +5,24 @@
  */
 package br.mack.agendamento.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 /**
  *
  * @author vmrib
  */
-public class Agenda {
+@Entity
+public class Agenda implements Serializable{
     @Id
     private int id;
     private int tam_consulta;
     private Date dataInicio;
     private Date dataFim;
+    
     
     private List<Consulta> consultas;
 
@@ -58,8 +61,17 @@ public class Agenda {
         this.dataFim = dataFim;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Agenda{" + "tam_consulta=" + tam_consulta + ", dataInicio=" + dataInicio + ", dataFim=" + dataFim + '}';
+        return "Agenda{" + "id=" + id + ", tam_consulta=" + tam_consulta + ", dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", consultas=" + consultas + '}';
     }
+    
 }

@@ -5,15 +5,25 @@
  */
 package br.mack.agendamento.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author vmrib
  */
-public class Consulta {
+@Entity
+public class Consulta implements Serializable{
+    @Id
+    private long id;
     private int horario;
+    
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataConsulta;
     private String status;
     
@@ -54,8 +64,16 @@ public class Consulta {
         this.status = status;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Consulta{" + "horario=" + horario + ", dataConsulta=" + dataConsulta + ", status=" + status + '}';
+        return "Consulta{" + "id=" + id + ", horario=" + horario + ", dataConsulta=" + dataConsulta + ", status=" + status + ", clientes=" + clientes + '}';
     }
 }

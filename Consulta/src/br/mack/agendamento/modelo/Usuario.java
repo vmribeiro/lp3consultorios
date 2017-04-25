@@ -5,11 +5,18 @@
  */
 package br.mack.agendamento.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author vmrib
  */
-public class Usuario {
+@Entity
+public class Usuario implements Serializable{
+    @Id
+    protected long id;
     protected String email;
     protected String senha;
     protected String login;

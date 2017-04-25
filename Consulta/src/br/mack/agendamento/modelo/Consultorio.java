@@ -5,13 +5,19 @@
  */
 package br.mack.agendamento.modelo;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author vmrib
  */
-public class Consultorio {
+@Entity
+public class Consultorio implements Serializable{
+    @Id
+    private long id;
     private String nome;
     private String endereco;
     private List<Agenda> agendas;
@@ -44,9 +50,19 @@ public class Consultorio {
         this.endereco = endereco;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Consultorio{" + "nome=" + nome + ", endereco=" + endereco + '}';
+        return "Consultorio{" + "id=" + id + ", nome=" + nome + ", endereco=" + endereco + ", agendas=" + agendas + '}';
     }
+
+    
     
 }

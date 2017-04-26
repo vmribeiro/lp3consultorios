@@ -20,12 +20,29 @@ public class UsuarioDAOJPAImpl implements UsuarioDAO {
 
     @Override
     public List<Usuario> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConsultaPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Query q = em.createQuery("select u from Usuario u");
+        List<Usuario> result = null;
+        result = q.getResultList();
+        em.getTransaction().commit();
+        em.clear();
+        em.close();
+        emf.close();
+
+        return result;
     }
 
     @Override
     public Usuario findById(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConsultaPU");
+        EntityManager em = emf.createEntityManager();
+        Usuario u = em.find(Usuario.class, id);
+        em.clear();
+        em.close();
+        emf.close();
+        return u;
     }
 
     @Override
@@ -47,17 +64,57 @@ public class UsuarioDAOJPAImpl implements UsuarioDAO {
 
     @Override
     public boolean remove(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("UsuarioPU");
+        EntityManager em = emf.createEntityManager();
+        long id = usuario.getId();
+        try {
+            em.getTransaction().begin();
+            Usuario u = em.find(Usuario.class, id);
+            em.remove(u);
+            em.getTransaction().commit();
+            em.clear();
+            em.close();
+            emf.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
     public boolean removeById(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("UsuarioPU");
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            Usuario u = em.find(Usuario.class, id);
+            em.remove(u);
+            em.getTransaction().commit();
+            em.clear();
+            em.close();
+            emf.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
     public boolean update(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("UsuarioPU");
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            usuario = em.merge(usuario);
+            em.getTransaction().commit();
+            em.clear();
+            em.close();
+            emf.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

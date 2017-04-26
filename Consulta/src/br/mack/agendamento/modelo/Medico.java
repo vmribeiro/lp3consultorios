@@ -7,6 +7,7 @@ package br.mack.agendamento.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -14,7 +15,10 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Medico extends Usuario implements Serializable{
+    
     private String crm;
+    
+    @OneToOne
     private Agenda agenda;
 
     public String getCrm() {

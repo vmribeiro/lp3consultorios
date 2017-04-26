@@ -5,27 +5,24 @@
  */
 package br.mack.agendamento.dao;
 
-import br.mack.agendamento.service.Operacao;
+import br.mack.agendamento.modelo.Usuario;
+import java.util.List;
 
 /**
  *
- * @author vmrib
+ * @author rabah
  */
-public class UsuarioDAO implements Operacao{
-
-    @Override
-    public Object buscar(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object inserir(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object atualizar(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+public interface UsuarioDAO {
+    
+    public List<Usuario> findAll();
+    public Usuario findById(long id);
+    
+    
+    public Usuario create(Usuario usuario);
+    
+    public boolean remove(Usuario usuario);
+    public boolean removeById(long id);
+    
+    public boolean update(Usuario usuario);
     
 }

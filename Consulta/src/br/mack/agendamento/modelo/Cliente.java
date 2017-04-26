@@ -1,8 +1,11 @@
 package br.mack.agendamento.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -13,7 +16,13 @@ public class Cliente extends Usuario implements Serializable{
     private String endereco;
     private String telefone;
     
+    
+       @OneToMany(orphanRemoval=true)
+    @JoinColumn(name="CLIENTE_ID")
+    private List<Consulta> consultas;
+    
     public Cliente() {
+        consultas = new ArrayList<>();
     }   
     
     public String getEndereco() {
@@ -30,6 +39,20 @@ public class Cliente extends Usuario implements Serializable{
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+    
+
+    public List<Consulta> getConsultas(){
+        return this.consultas;
+    }
+    
+    
+    public void setConstultas(List<Consulta> consultas){
+        this.consultas = consultas;
+    }
+    
+    public void addConsulta(Consulta consulta){
+        this.consultas.add(consulta);
     }
     
     @Override

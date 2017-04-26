@@ -7,26 +7,31 @@ package br.mack.agendamento.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 /**
  *
  * @author vmrib
  */
 @Entity
+@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
+
 public class Usuario implements Serializable{
     @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     protected long id;
     protected String email;
     protected String senha;
     protected String login;
     protected String nome;
     protected String cpf;
-    protected boolean isMedico;
+//    protected boolean isMedico;
     
-    //Um usuario pode acessar sua agenda, caso seja médico essa será a agenda com todas as consultas
-    protected Agenda agenda;
-
+    
     public Usuario() {
     }
 
@@ -38,22 +43,15 @@ public class Usuario implements Serializable{
         this.id = id;
     }
 
-    public Agenda getAgenda() {
-        return agenda;
-    }
-
-    public void setAgenda(Agenda agenda) {
-        this.agenda = agenda;
-    }
     
-    public boolean isIsMedico() {
-        return isMedico;
-    }
-
-    public void setIsMedico(boolean isMedico) {
-        this.isMedico = isMedico;
-    }
-    
+//    public boolean isIsMedico() {
+//        return isMedico;
+//    }
+//
+//    public void setIsMedico(boolean isMedico) {
+//        this.isMedico = isMedico;
+//    }
+//    
     public String getEmail() {
         return email;
     }
@@ -94,10 +92,7 @@ public class Usuario implements Serializable{
         this.cpf = cpf;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "id=" + id + ", email=" + email + ", senha=" + senha + ", login=" + login + ", nome=" + nome + ", cpf=" + cpf + ", isMedico=" + isMedico + ", agenda=" + agenda + '}';
-    }
+    
 
     
 }

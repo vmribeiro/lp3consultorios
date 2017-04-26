@@ -1,0 +1,31 @@
+Tue Apr 25 21:18:30 BRT 2017 : Apache Derby Network Server - 10.10.2.0 - (1582446) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Tue Apr 25 21:18:37 BRT 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-015b-a79f-824b-00004e1feac6 
+on database directory /Users/rabah/Box Sync/Mackenzie/4 sem/Linguagem de programação III - Lab/project/lp3consultorios/db/db_consulta with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
+Loaded from file:/Applications/NetBeans/glassfish-4.1.1/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_131-b11
+user.dir=/Applications/NetBeans/glassfish-4.1.1/javadb
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.12.4
+derby.system.home=/Users/rabah/Box Sync/Mackenzie/4 sem/Linguagem de programação III - Lab/project/lp3consultorios/db
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Tue Apr 25 21:18:42 BRT 2017:
+Shutting down instance a816c00e-015b-a79f-824b-00004e1feac6 on database directory /Users/rabah/Box Sync/Mackenzie/4 sem/Linguagem de programação III - Lab/project/lp3consultorios/db/db_consulta with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
+Tue Apr 25 21:18:42 BRT 2017 Thread[DRDAConnThread_2,5,main] (DATABASE = db_consulta), (DRDAID = {2}), Database 'db_consulta' shutdown.
+----------------------------------------------------------------
+Tue Apr 25 21:32:27 BRT 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance 560740aa-015b-a79f-824b-00004e1feac6 
+on database directory /Users/rabah/Box Sync/Mackenzie/4 sem/Linguagem de programação III - Lab/project/lp3consultorios/db/db_consulta with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
+Loaded from file:/Applications/NetBeans/glassfish-4.1.1/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_131-b11
+user.dir=/Applications/NetBeans/glassfish-4.1.1/javadb
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.12.4
+derby.system.home=/Users/rabah/Box Sync/Mackenzie/4 sem/Linguagem de programação III - Lab/project/lp3consultorios/db
+Database Class Loader started - derby.database.classpath=''

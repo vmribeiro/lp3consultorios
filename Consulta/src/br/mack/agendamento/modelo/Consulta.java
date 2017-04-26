@@ -6,11 +6,12 @@
 package br.mack.agendamento.modelo;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,39 +22,43 @@ import javax.persistence.TemporalType;
 @Entity
 public class Consulta implements Serializable{
     @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
-    private int horario;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date horario;
     
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime dataConsulta;
+    private Date dataConsulta;
+    
     private String status;
     
-    private List<Cliente> clientes;
+    @OneToOne
+    private Cliente cliente;
 
     public Consulta() {
     }
 
-    public List<Cliente> getClientes() {
-        return clientes;
+
+    public Cliente getClientes() {
+        return cliente;
     }
     
-    public void addCliente(Cliente c){
-        clientes.add(c);
+    public void setCliente(Cliente cliente){
+        this.cliente = cliente;
     }
-
-    public int getHorario() {
+    public Date getHorario() {
         return horario;
     }
 
-    public void setHorario(int horario) {
+    public void setHorario(Date horario) {
         this.horario = horario;
     }
 
-    public LocalDateTime getDataConsulta() {
+    public Date getDataConsulta() {
         return dataConsulta;
     }
 
-    public void setDataConsulta(LocalDateTime dataConsulta) {
+    public void setDataConsulta(Date dataConsulta) {
         this.dataConsulta = dataConsulta;
     }
 
@@ -73,8 +78,5 @@ public class Consulta implements Serializable{
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "Consulta{" + "id=" + id + ", horario=" + horario + ", dataConsulta=" + dataConsulta + ", status=" + status + ", clientes=" + clientes + '}';
-    }
+  
 }

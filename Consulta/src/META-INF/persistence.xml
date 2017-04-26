@@ -2,13 +2,20 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="ConsultaPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>br.mack.agendamento.modelo.Usuario</class>
+    <class>br.mack.agendamento.modelo.Agenda</class>
+    <class>br.mack.agendamento.modelo.Cliente</class>
+    <class>br.mack.agendamento.modelo.Consulta</class>
+    <class>br.mack.agendamento.modelo.Consultorio</class>
+    <class>br.mack.agendamento.modelo.Medico</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/db_consulta"/>
       <property name="javax.persistence.jdbc.user" value="mack"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.password" value="mack"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

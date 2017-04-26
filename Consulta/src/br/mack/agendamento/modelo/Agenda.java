@@ -6,10 +6,13 @@
 package br.mack.agendamento.modelo;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -18,17 +21,18 @@ import javax.persistence.Id;
 @Entity
 public class Agenda implements Serializable{
     @Id
-    private int id;
-    private int tam_consulta;
-    private Date dataInicio;
-    private Date dataFim;
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private long id;
+  
     
-    
+//    @OneToMany(orphanRemoval=true)
+//    @JoinColumn(name="AGENDA_ID")
+    @OneToMany(orphanRemoval=true)
+    @JoinColumn(name="AGENDA_ID")
     private List<Consulta> consultas;
 
     public Agenda() {
     }
-
     public List<Consulta> getConsultas() {
         return consultas;
     }
@@ -36,42 +40,12 @@ public class Agenda implements Serializable{
     public void addConsulta(Consulta c){
         consultas.add(c);
     }
-    
-    public int getTam_consulta() {
-        return tam_consulta;
-    }
 
-    public void setTam_consulta(int tam_consulta) {
-        this.tam_consulta = tam_consulta;
-    }
-
-    public Date getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setDataInicio(Date dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
-    public Date getDataFim() {
-        return dataFim;
-    }
-
-    public void setDataFim(Date dataFim) {
-        this.dataFim = dataFim;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
-
-    @Override
-    public String toString() {
-        return "Agenda{" + "id=" + id + ", tam_consulta=" + tam_consulta + ", dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", consultas=" + consultas + '}';
-    }
-    
 }
